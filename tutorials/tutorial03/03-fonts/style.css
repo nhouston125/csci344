@@ -1,0 +1,24 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    h1 {
+        font-family: "Dela Gothic One", sans-serif;
+    }
+    margin: 0;
+}
+
+/* create additional rules below:  */
+
+main {
+
+    h2 {
+        font-family: "Oswald", sans-serif;
+    }
+}

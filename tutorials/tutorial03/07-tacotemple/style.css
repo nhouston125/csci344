@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+}
+
+section{
+    display: flex;
+}
+
+.card{
+    border: solid 2px lightgray;
+}
+
+div {
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+}
+
+img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
