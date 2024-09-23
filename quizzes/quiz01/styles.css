@@ -1,0 +1,101 @@
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header,
+main,
+footer {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: #013672;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    font-size: large;
+    a:link {
+        text-decoration: none;
+        color: white;
+    }
+    a:visited {
+        text-decoration: none; 
+        color: white;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    gap: 30px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Passion One";
+}
+
+h1 {
+    display: flex;
+    margin-top: 220px;
+    justify-content: center;
+}
+
+h2 {
+    display: flex;
+}
+
+h2,
+h3 {
+    margin-top: 20px;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.card{
+    display: flex;
+    font-size: large;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    border: solid 2px lightgray;
+
+}
+
+#cardInfo {
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+}
+
+img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+header img,
+footer img {
+    width: 200px;
+}

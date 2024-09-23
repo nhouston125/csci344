@@ -4,7 +4,7 @@ body * {
 
 body {
     margin: 0;
-    background: #F4F4F4;
+    background: #F2F2F2;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -24,8 +24,26 @@ nav,
 }
 
 .logo {
-    font-size: 1em;
-    font-weight: normal;
+    font-size: 1.5em;
+    font-weight: bolder;
+    border: none;
+}
+
+nav {
+    border: none;
+    font-size: .8em;
+    font-weight:bolder;
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    a:link {
+        text-decoration: none;
+        color: #306C9D;
+    }
+    a:visited {
+        text-decoration: none; 
+        color: #306C9D;
+    }
 }
 
 aside,
@@ -46,28 +64,98 @@ article {
 #top-header {
     background-color: white;
     position:fixed;
+    height: 10%;
     width: 100%;
-    /* top only works when item's position is fixed */
     top: 0;
     left: 0;
     margin: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border: none;
 }
 
 aside {
-    background-color: white;
-    position: fixed;
-    top: 100px;
-    right: 5vw;
-    width: 30vw;
+    border: none;
+    background-color: #F2F2F2;
+     position: fixed;
+    top: 70px;
+    right: 3vw;
+    width: 35vw;
     margin: 0;
+
 }
+
+#mainuser {
+    display: flex;
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+
+#userlist {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 2vh;
+    height: 10vh;
+    a:link {
+        text-decoration: none;
+        color: #306C9D;
+    }
+    a:visited {
+        text-decoration: none; 
+        color: #306C9D;
+    }
+}
+
+#sugtext {
+    font-size:x-large;
+    font-weight: bolder;
+    color: #999999;
+}
+
+#suguser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:last baseline;
+    height: 10vh;
+}
+
+#sugimg {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border-radius: 50%;
+}
+
+#sugtop {
+    margin: 0;
+    margin-top: 10px;
+    gap: 0;
+    color: #000;
+    padding: 0;
+}
+
+#sugbot {
+    margin-top: 0;
+    gap: 0;
+    padding: 0;
+    font-size: 0.75em;
+}
+
+#sugfollow {
+    font-size: 0.75em;
+}
+
 
 main {
     margin-top: 100px;
     width: 55vw;
     margin-left: 5vw;
+    background-color: white;
 }
 
 @media (max-width: 800px) {
