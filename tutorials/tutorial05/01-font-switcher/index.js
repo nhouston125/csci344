@@ -1,18 +1,15 @@
 const makeBigger = () => {
-   alert('make bigger!');
+   // alert('make bigger!');
+   const h1 = document.querySelector('h1');
+   h1.style.fontSize = "50px";
+   const div = document.querySelector('div.content');
+   div.style.fontSize = "50px";
 };
 
 const makeSmaller = () => {
-   alert('make smaller!');
+   // alert('make smaller!');
+   const h1 = document.querySelector('h1');
+   h1.style.fontSize = "32px";
+   const div = document.querySelector('div.content');
+   div.style.fontSize = "22.4px";
 };
-
-/*
-Tips:
-1. First, in the index.html file, add an onclick attribute to each button.
-   The value of the attribute should be a call to the corresponding function
-   (see class demos).
-
-2. Then modify the body of the "makeBigger" and 
-   "makeSmaller" functions (in between the curly braces)
-   to target the body element and set it's font size.
-*/
