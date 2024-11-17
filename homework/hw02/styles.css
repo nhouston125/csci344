@@ -106,6 +106,8 @@ aside {
 
 #mainuser header {
     border: none;
+    display: flex;
+    align-items: center;
 }
 
 #userlist {
@@ -176,10 +178,241 @@ img {
 
 main {
     margin-top: 100px;
+    border: none;
     width: 55vw;
-    margin-left: 5vw;
-    background-color: white;
+    margin-left: 8vw;
+    background-color: #F2F2F2;
 }
+
+#stories {
+    background-color: white;
+    display: flex;
+    border: none;
+    justify-content: left;
+    padding: 0;
+    height: 18vh;
+    width: 50vw;
+}
+
+#allstories {
+    display: flex;
+    flex-direction: column;
+    padding: 0; 
+    border: none;
+    padding-top: 2px;
+    margin-left: 0;
+    margin-right: 2px;
+}
+
+#storyimg {
+    display: flex;
+    justify-content: center;
+    align-items:end;
+    padding: 0;
+    height: 60px;
+    border: none;
+}
+
+#storyuser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    color: #999999;
+    border: none;
+    height: 0px;
+
+}
+
+#feed {
+    border: none;
+    width: 51.5vw;
+    margin-left: 0;
+}
+
+#post {
+    background-color: white;
+    width: 50vw;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8vh;
+}
+
+#banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#postname {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 2em;
+    font-weight: bolder;
+    padding: 0;
+    border: none;
+}
+
+#icons {
+    font-size:x-large;
+    border: none;
+    padding: 0;
+}
+
+#postimg img {
+    border-radius: 0;
+    width: 49.8vw;
+    height: 70vh;
+    margin: 0;
+}
+
+#postimg {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#content {
+    margin: 0;
+    border: none;
+}
+
+#reactbanner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#likecom {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#likecount {
+    font-weight: bolder;
+    font-size: large;
+    padding: 10;
+    margin: 0;
+    border: none;
+    margin-bottom: 5px;
+}
+
+#caption {
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-start;
+    padding: 0;
+    margin: 0;
+    font-size:larger; 
+    border: none;
+}
+
+#usercap {
+    font-weight: bolder;
+    font-size: large;
+    display: flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    margin: 0;
+    padding: 0;
+    padding-top: 1px;
+    margin-left: 10px;
+    margin-right: 5px;
+    height: 3.5vh;
+    border: none;
+}
+
+#moretext {
+    font-size: medium;
+    margin: 0;
+    border: none;
+    padding-top: 3px;
+    height: 3vh;
+    a:link {
+        text-decoration: none;
+        color: #306C9D;
+    }
+    a:visited {
+        text-decoration: none; 
+        color: #306C9D;
+    }
+}
+
+#comsect {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#comment {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    font-size: larger;
+    border: none;
+}
+
+#time {
+    color: #999999;
+    border: none;
+    margin-top: 5px;
+    padding-top: 0;
+}
+
+#fullpostcom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    padding-right: 20px;
+    
+}
+
+#postbar {
+    display: flex;
+    align-items: center;
+    border: none;
+    margin: 0;
+}
+
+#addcom {
+    padding: 0;
+    color: #999999;
+    font-size: larger;
+    border: none;
+    width: 30vw;
+}
+
+#postbtn {
+    font-size: x-large;
+    margin: 0;
+    padding: 0;
+    height: 5vh;
+    border: none;
+    a:link {
+        text-decoration: none;
+        color: #306C9D;
+    }
+    a:visited {
+        text-decoration: none; 
+        color: #306C9D;
+    }
+}
+
 
 @media (max-width: 800px) {
 
@@ -195,4 +428,15 @@ main {
         padding: 20px;
     }
 
+    #stories {
+        width: 90vw;
+    }
+
+    #post {
+        width: 90vw;
+    }
+
+    #postimg img {
+        width: 89.8vw;
+    }
 }
