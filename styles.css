@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: 10;
     background: #F2F2F2;
     font-family: Arial, Helvetica, sans-serif;
     a:link {
@@ -13,5 +13,22 @@ body {
 }
 
 header {
+        padding: 5px;
+        padding-left: 20px;
         font-family: "Comfortaa", sans-serif;
+        color: #F2F2F2;
+        background-color:darkslategrey;
+}
+
+h2 {
+    padding: 5px;
+    padding-left: 20px;
+    font-family: "Comfortaa", sans-serif;
+    color: black;
+    background-color:rgb(132, 171, 171);
+}
+
+main {
+    padding-left: 5px;
+    
 }
