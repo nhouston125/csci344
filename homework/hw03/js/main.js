@@ -7,6 +7,9 @@ let password = "password";
 async function initializeScreen() {
     token = await getToken();
     showNav();
+    getUserProfile();
+    getSuggestions();
+    getStories();
     getPosts();
 }
 
@@ -27,6 +30,89 @@ function showNav() {
 }
 
 // implement remaining functionality below:
+async function getUserProfile() {
+    const response = await fetch("https://photo-app-secured.herokuapp.com/api/profile", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    const profile = await response.json();
+    console.log(profile);
+    showUserProfile(profile);
+
+}
+
+function showUserProfile(profile) {
+    const asideEl = document.querySelector("aside");
+    const template = `
+        <header class="flex gap-4 items-center">
+            <img src="${profile.thumb_url}" class="rounded-full w-16" />
+            <h2 class="font-Comfortaa font-bold text-2xl">${profile.username}</h2>
+        </header>
+         <div class="mt-4">
+            <p class="text-base text-gray-400 font-bold mb-4">Suggestions for you</p>
+        </div>`;
+        asideEl.insertAdjacentHTML("afterbegin", template);
+}
+
+async function getSuggestions() {
+    const response = await fetch("https://photo-app-secured.herokuapp.com/api/suggestions", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    const suggestions = await response.json();
+    console.log(suggestions);
+    showSuggestions(suggestions);
+}
+
+function showSuggestions(suggestions) {
+    const asideEl = document.querySelector("aside > div");
+    suggestions.forEach(suggestion => {
+        const template = `
+        <section class="flex justify-between items-center mb-4 gap-2">
+                <img src="${suggestion.thumb_url}" class="rounded-full" />
+                <div class="w-[180px]">
+                    <p class="font-bold text-sm">${suggestion.username}</p>
+                    <p class="text-gray-500 text-xs">suggested for you</p>
+                </div>
+                <button class="text-blue-500 text-sm py-2">follow</button>
+            </section>`;
+        asideEl.insertAdjacentHTML("beforeend", template);
+    });
+}
+
+async function getStories() {
+    const response = await fetch("https://photo-app-secured.herokuapp.com/api/stories", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    const stories = await response.json();
+    console.log(stories);
+    console.log(stories);
+    console.log(stories);
+    showStories(stories);
+}
+
+function showStories(stories) {
+    const headerEl = document.querySelector("main > header");    
+    stories.forEach(story => {
+        const template = `
+        <div class="flex flex-col justify-center items-center">
+            <img src="${story.user.thumb_url}" class="rounded-full border-4 border-gray-300" />
+            <p class="text-xs text-gray-500">${story.user.username}</p>
+        </div>`;
+        headerEl.insertAdjacentHTML("beforeend",template);
+    });
+}
+
 async function getPosts() {
     // get the HTTP response header
     const endpoint =
@@ -105,7 +191,7 @@ function showComments(comments) {
     if (comments.length > 1) {
         const lastComment = comments[comments.length-1];
         return `
-            <button class="text-sm mb-3">view all ${comments.length} comments</button>
+            <button class="text-sm mb-3 text-blue-500">View all ${comments.length} comments</button>
             <p class="text-sm mb-3">
                 <strong>${lastComment.user.username}</strong> ${lastComment.text}
             </p>
@@ -122,11 +208,16 @@ function showComments(comments) {
 }
 
 function getLikeButton(post) {
-    let iconClass = "far"
     if (post.current_user_like_id) {
-        iconClass = "fa-solid text-red-700"
+        // already liked
+        return `<button onclick="deleteLike(${post.current_user_like_id})"><i class="fa-solid text-red-700 fa-heart"></i></button>`
+    } else {
+        // not liked
+        return `
+            <button onclick="createLike(${post.id})">
+                <i class="far fa-heart"></i>
+            </button>`;
     }
-    return `<button><i class="${iconClass} fa-heart"></i></button>`
 }
 
 function getBookmarkButton(post) {
@@ -164,6 +255,38 @@ window.createBookmark = async function(postID) {
 
 window.deleteBookmark = async function(bookmarkID) {
     const response = await fetch(`https://photo-app-secured.herokuapp.com/api/bookmarks/${bookmarkID}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    const data = await response.json();
+    console.log(data);
+}
+
+window.createLike = async function(postID) {
+    const postData = {
+        "post_id": postID
+    };
+    
+    const response = await fetch(
+        "https://photo-app-secured.herokuapp.com/api/likes/", 
+        {
+            method: "POST", // Create new resource on the server
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(postData) // the data that is getting sent to the server
+        }
+    );
+    const data = await response.json();
+    console.log(data);
+}
+
+window.deleteLike = async function(likeID) {
+    const response = await fetch(`https://photo-app-secured.herokuapp.com/api/likes/${likeID}`, {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
