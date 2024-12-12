@@ -1,0 +1,20 @@
+<section class="card">
+    <h2>{{ restaurant.get('name') }}</h2>
+    <img class="pic" src="{{ restaurant.get('image_url') }}" alt="Picture of restaurant">
+    <p>{{ restaurant.get('display_address') }}</p>
+    <table border=1 frame=void rules=rows>
+        <tr>
+            <td>Price:</td>
+            <td class="table">{{ restaurant.get('price') }}</td>
+        </tr>
+        <tr>
+            <td>Rating:</td>
+            <td class="table">{{ restaurant.get('rating') }}</td>
+        </tr>
+        <tr>
+            <td># Reviews:</td>
+            <td class="table">{{ restaurant.get('review_count') }}</td>
+        </tr>
+            
+    </table>
+</section>
